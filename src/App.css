@@ -10,29 +10,8 @@
   box-sizing: border-box;
 }
 
-.app__header {
-  grid-area: header;
-}
-
-.app__header__legend {
-  border: 1px solid #f1f1f1;
-  padding: 0 1em;
-}
-
-.app__sidebar {
-  grid-area: sidebar;
-  background-color: #e7f4fd;
-  padding: 0 1em;
-}
-
 .app__content {
   grid-area: content;
   border: 1px solid #f1f1f1;
   padding: 0 1em;
-}
-
-.actions {
-  font-weight: bold;
-  display: flex;
-  gap: 1em;
 }

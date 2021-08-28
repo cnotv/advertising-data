@@ -1,0 +1,8 @@
+.header {
+  grid-area: header;
+}
+
+.header__legend {
+  border: 1px solid #f1f1f1;
+  padding: 0 1em;
+}

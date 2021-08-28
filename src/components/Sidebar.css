@@ -1,0 +1,11 @@
+.sidebar {
+  grid-area: sidebar;
+  background-color: #e7f4fd;
+  padding: 0 1em;
+}
+
+.sidebar__actions {
+  font-weight: bold;
+  display: flex;
+  gap: 1em;
+}
