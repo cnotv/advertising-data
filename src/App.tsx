@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Sidebar />
+      <Sidebar handleChange={() => {}} />
 
       <main className="app__content">
         <h1>Datasource "Doubleclick (dfa)" and "Meetrics"; All Campaigns</h1>

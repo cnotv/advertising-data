@@ -1,36 +1,47 @@
+import { Button, Select } from "antd"
+import { FilterOutlined, UndoOutlined } from '@ant-design/icons';
 import "./Sidebar.css"
 
-export const Sidebar = () => {
+const regularDimensions = ['dataSource', 'campaign'];
+const metrics = ['click', 'impressions'];
+
+interface SidebarProps {
+  handleChange: () => void
+}
+
+export const Sidebar = ({ handleChange }: SidebarProps) => {
   return (
     <aside className="sidebar">
       <h1>Filter dimension values</h1>
 
       <div className="sidebar__actions">
         <span>Datasource</span>
-        <i>toggle</i>
-        <button
-          disabled
-          type="button"
-        >Reset</button>
+        <Button shape="circle" icon={<FilterOutlined />} />
+        <Button shape="circle" icon={<UndoOutlined />} />
       </div>
       <div>
-        <p>Doubleclick (dfa)</p>
-        <p>Meetrics</p>
-        <button type="button">Apply</button>
+        <Select
+          mode="multiple"
+          allowClear
+          style={{ width: '100%' }}
+          placeholder="All"
+          onChange={handleChange}
+        >{regularDimensions}</Select>
+        <Button>Apply</Button>
       </div>
 
       <div className="sidebar__actions">
         <span>Campaign</span>
-        <i>toggle</i>
-        <button
-          disabled
-          type="button"
-        >Reset</button>
+        <Button shape="circle" icon={<FilterOutlined />} />
+        <Button shape="circle" icon={<UndoOutlined />} />
       </div>
-      <div>
-        <p>All</p>
-        <button type="button">Apply</button>
-      </div>
+      <Select
+        mode="multiple"
+        allowClear
+        style={{ width: '100%' }}
+        placeholder="All"
+        onChange={handleChange}
+      >{metrics}</Select>
     </aside>
   )
 }
