@@ -9,6 +9,7 @@ import { getData } from './helpers/api';
 
 function App() {
   const [ data, setData ] = useState<Data[]>([]);
+  const [ filteredData, setFilteredData ] = useState<Data[]>([]);
   const [metrics, setMetrics] = useState<Metrics>({
     campaigns: [],
     dataSources: [],
@@ -17,12 +18,24 @@ function App() {
   const loadData = async () => {
     const newData = await getData();
     setData(newData);
+    setFilteredData(newData);
     setMetrics(
       {
         campaigns: uniq(map(newData, 'campaign')),
         dataSources: uniq(map(newData, 'dataSource')),
       }
     )
+  }
+
+  const filterData = ({ dataSources, campaigns }: Metrics) => {
+    dataSources = dataSources.length > 0 ? dataSources : metrics.dataSources;
+    campaigns = campaigns.length > 0 ? campaigns :  metrics.campaigns;
+
+    setFilteredData(
+      data.filter(d => {
+        return dataSources.includes(d.dataSource) && campaigns.includes(d.campaign);
+      })
+    );
   }
 
   useEffect(() => {
@@ -32,12 +45,12 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Sidebar metrics={ metrics } update={setMetrics} />
+      <Sidebar metrics={ metrics } update={filterData} />
 
       <main className="app__content">
         <h1>Datasource "Doubleclick (dfa)" and "Meetrics"; All Campaigns</h1>
         <div className="app__chart">
-          <Chart data={data} />
+          <Chart data={filteredData} />
         </div>
       </main>
     </div>

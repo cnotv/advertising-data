@@ -10,7 +10,7 @@ export const getData = (): Promise<Data[]> => {
     .then(
       result => result
         .split('\n')
-        .slice(1, 50)
+        .slice(1, 500)
         // .slice(1, result.length - 1)
         .map(
           line => {
