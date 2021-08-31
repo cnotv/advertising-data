@@ -28,6 +28,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 > - one time dimension (Date)
 > - two regular dimensions (Campaign, Datasource)
 > - two metrics (Clicks, Impressions)
+>
 > The goal is to provide a simple dashboard, that shows those metrics for given regular dimension
 > values (as user input) over time. It could look like this:
 > 

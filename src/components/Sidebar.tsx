@@ -5,14 +5,12 @@ import { useState } from "react";
 
 const { Option } = Select;
 
-const regularDimensions = ['dataSources', 'campaigns'];
-const metrics = ['click', 'impressions'];
-
 interface SidebarProps {
-  handleChange: (metrics: Metrics) => void
+  update: (metrics: Metrics) => void
+  metrics: Metrics
 }
 
-export const Sidebar = ({ handleChange }: SidebarProps) => {
+export const Sidebar = ({ update, metrics }: SidebarProps) => {
   const [dataSources, setDataSources] = useState<string[]>([]);
   const [campaigns, setCampaigns] = useState<string[]>([]);
 
@@ -41,7 +39,7 @@ export const Sidebar = ({ handleChange }: SidebarProps) => {
             placeholder="All"
             onChange={value => setDataSources(value)}
             value={dataSources}
-          >{regularDimensions.map((item, i) => <Option value={item} key={i}>{item}</Option>)}</Select>
+          >{metrics.dataSources.map((item, i) => <Option value={item} key={i}>{item}</Option>)}</Select>
         </div>
 
         <div className="sidebar__actions">
@@ -63,11 +61,11 @@ export const Sidebar = ({ handleChange }: SidebarProps) => {
           placeholder="All"
           onChange={values => setCampaigns(values)}
           value={campaigns}
-        >{metrics.map((item, i) => <Option value={item} key={i}>{item}</Option>)}</Select>
+        >{metrics.campaigns.map((item, i) => <Option value={item} key={i}>{item}</Option>)}</Select>
       </div>
 
       <Button
-        onClick={() => handleChange({ dataSources, campaigns })}
+        onClick={() => update({ dataSources, campaigns })}
       >Apply</Button>
     </aside>
   )
