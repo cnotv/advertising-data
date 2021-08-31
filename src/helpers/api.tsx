@@ -4,13 +4,13 @@ const URL = 'http://adverity-challenge.s3-website-eu-west-1.amazonaws.com/DAMKBA
  * Retrieve CSV as string and convert to Data object
  * @returns 
  */
-export const getData = (): Promise<Data[]> => {
+export const getData = (): Promise<RichChartData[]> => {
   return fetch(URL)
     .then(res => res.text())
     .then(
       result => result
         .split('\n')
-        .slice(1, 500)
+        .slice(1, 200)
         // .slice(1, result.length - 1)
         .map(
           line => {
@@ -26,8 +26,8 @@ export const getData = (): Promise<Data[]> => {
               date,
               dataSource,
               campaign,
-              clicks,
-              impressions,
+              clicks: Number(clicks),
+              impressions: Number(impressions),
             };
           }
         ),

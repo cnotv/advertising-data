@@ -1,7 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 interface ChartProps {
-  data: Data[],
+  data: ChartData[],
 }
 
 export const Chart = ({data}: ChartProps) => {
@@ -19,9 +19,9 @@ export const Chart = ({data}: ChartProps) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis yAxisId="left" />
-        <YAxis yAxisId="right" orientation="right" />
+        <XAxis dataKey="date"/>
+        <YAxis yAxisId="left"/>
+        <YAxis yAxisId="right" orientation="right"/>
         <Tooltip />
         <Legend />
         <Line yAxisId="left" type="monotone" dataKey="clicks" stroke="#8884d8" activeDot={{ r: 8 }} />
