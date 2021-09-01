@@ -25,7 +25,7 @@ function App() {
     }
     setData(newData);
     setMetrics(newMetrics);
-    setFilteredData(newData);
+    setFilteredData(filterData(newData, newMetrics, newMetrics));
   }
 
   useEffect(() => {
