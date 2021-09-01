@@ -11,7 +11,8 @@ export const getData = (): Promise<RichChartData[]> => {
       result => result
         .split('\n')
         // .slice(1, 200)
-        .slice(1, result.length - 1)
+        .slice(1, result.length)
+        .filter(Boolean)
         .map(
           line => {
             const [
@@ -21,7 +22,7 @@ export const getData = (): Promise<RichChartData[]> => {
               clicks,
               impressions] =
               line.split(',');
-
+            
             return {
               date,
               dataSource,
