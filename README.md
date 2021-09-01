@@ -57,6 +57,7 @@ As default React configuration, run `yarn start` and open browser at `http://loc
 
 - The data computation is done without use Lodash, as I was unable to identify the right functions
 - Tests are limited exclusively to the parsing functionality
+- Some complex logic has been identified while trying to evaluating case with all the metrics and related computations
 
 ## Crossed complexity
 
