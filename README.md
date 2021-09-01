@@ -2,7 +2,13 @@
 
 The project is build using (Ant Design)[https://ant.design/] as UI library and [Rechart](https://recharts.org) for plotting.
 
-Values are summed for the same day and computed at every filter change.
+## Architecture
+
+The project is split in components and communicate between each other via `App` view component.
+
+Data is fetched and converted from string to list, without any manipulation.
+
+Final chart values are summed for matching dates, while undefined campaigns and sources are discarded.
 
 ## Run the project
 
@@ -46,3 +52,13 @@ As default React configuration, run `yarn start` and open browser at `http://loc
 >
 > to implement the entire application as a pure frontend application - that fetches the data, does the
 > heavy computation and visualizes the result.
+
+## Remarks
+
+- The data computation is done without use Lodash, as I was unable to identify the right functions
+- Tests are limited exclusively to the parsing functionality
+
+## Crossed complexity
+
+- Requirement have been not extremely clear to me, specifically what was intended with `two regular dimensions` and `two metrics`
+- The aggregation task of the metrics has not be clear on a first glance
