@@ -1,6 +1,6 @@
 # Advertising Data
 
-The project is build using (Ant Design)[https://ant.design/] as UI library and [Rechart](https://recharts.org) for plotting.
+The project is build using [Ant Design](https://ant.design/) as UI library and [Rechart](https://recharts.org) for plotting.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ As default React configuration, run `yarn start` and open browser at `http://loc
 > The goal is to provide a simple dashboard, that shows those metrics for given regular dimension
 > values (as user input) over time. It could look like this:
 > 
-> ![](preview.png)
+> ![image preview](preview.png)
 >
 > Initially, no Datasource or Campaign is selected, hence the chart should show Clicks and
 > Impressions over time for the entire data set. Users can then filter the dataset for both Datasources
