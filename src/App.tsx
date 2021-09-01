@@ -7,6 +7,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { getData } from './helpers/api';
 import { filterData } from './helpers/metrics';
+import { Skeleton } from 'antd';
 
 function App() {
   const [data, setData] = useState<RichChartData[]>([]);
@@ -39,7 +40,10 @@ function App() {
       <main className="app__content">
         <h1>Datasource "Doubleclick (dfa)" and "Meetrics"; All Campaigns</h1>
         <div className="app__chart">
-          <Chart data={filteredData} />
+          {data.length > 0
+            ? <Chart data={filteredData} />
+            : <Skeleton active />
+          }
         </div>
       </main>
     </div>
