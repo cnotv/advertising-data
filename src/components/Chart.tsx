@@ -24,8 +24,8 @@ export const Chart = ({data}: ChartProps) => {
         <YAxis yAxisId="right" orientation="right"/>
         <Tooltip />
         <Legend />
-        <Line yAxisId="left" type="monotone" dataKey="clicks" stroke="#8884d8" activeDot={{ r: 8 }} />
-        <Line yAxisId="right" type="monotone" dataKey="impressions" stroke="#82ca9d" />
+        <Line yAxisId="left" type="monotone" dataKey="clicks" stroke="#8884d8" dot={false} activeDot={{ r: 8 }} />
+        <Line yAxisId="right" type="monotone" dataKey="impressions" stroke="#82ca9d" dot={false}/>
       </LineChart>
     </ResponsiveContainer>
   );
