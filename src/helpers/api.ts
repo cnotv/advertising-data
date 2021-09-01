@@ -10,8 +10,8 @@ export const getData = (): Promise<RichChartData[]> => {
     .then(
       result => result
         .split('\n')
-        .slice(1, 200)
-        // .slice(1, result.length - 1)
+        // .slice(1, 200)
+        .slice(1, result.length - 1)
         .map(
           line => {
             const [
