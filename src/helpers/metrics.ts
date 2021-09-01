@@ -14,19 +14,23 @@ export const filterData = (
   campaigns = campaigns.length > 0 ? campaigns : metrics.campaigns;
 
   return Object.values(
-    chartData.reduce((acc, curr) => {
+    chartData.reduce((acc, {date, clicks, impressions, dataSource, campaign }) => {
       const isFiltered =
-        dataSources.includes(curr.dataSource) &&
-        campaigns.includes(curr.campaign);
+        dataSources.includes(dataSource) &&
+        campaigns.includes(campaign);
       if (isFiltered) {
-        if (acc[curr.date]) {
-          acc[curr.date] = {
-            date: curr.date,
-            clicks: acc[curr.date].clicks + curr.clicks,
-            impressions: acc[curr.date].impressions + curr.impressions,
+        if (acc[date]) {
+          acc[date] = {
+            date: date,
+            clicks: acc[date].clicks + clicks,
+            impressions: acc[date].impressions + impressions,
           };
         } else {
-          acc[curr.date] = curr;
+          acc[date] = {
+            date,
+            clicks,
+            impressions
+          };
         }
       }
       return acc;
