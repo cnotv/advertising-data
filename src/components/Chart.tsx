@@ -31,7 +31,7 @@ export const Chart = ({ data }: ChartProps) => {
         <XAxis
           dataKey="date"
           label={{ angle: -90 }}
-          interval={7}
+          interval={6}
           tick={({ x, y, stroke, payload }) => (
             <g transform={`translate(${x},${y})`}>
               <text
