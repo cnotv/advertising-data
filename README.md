@@ -1,17 +1,12 @@
-## Available Scripts
+# Advertising Data
 
-### `yarn start`
+The project is build using (Ant Design)[https://ant.design/] as UI library and [Rechart](https://recharts.org) for plotting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Values are summed for the same day and computed at every filter change.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Run the project
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As default React configuration, run `yarn start` and open browser at `http://localhost:3000`. 
 
 ## Task
 
